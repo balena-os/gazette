@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  gazette:
+    build: ./
+    labels:
+      io.balena.features.journal-logs: '1'
+    restart: unless_stopped
