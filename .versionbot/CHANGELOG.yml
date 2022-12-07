@@ -1,4 +1,17 @@
 - commits:
+    - subject: Use latest version of debian in Dockerfile.template
+      hash: 3f001f62600a4d7723cd099a97ef18c4e2f241e3
+      body: |
+        This also fixes versioning since the last commit should have left the
+        version at 0.1.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+  version: 0.1.0
+  title: ""
+  date: 2022-12-07T21:08:08.978Z
+- commits:
     - subject: Create proof of concept
       hash: 3b5e9e697de477726a49b140bd7509f19e4afd5c
       body: |
