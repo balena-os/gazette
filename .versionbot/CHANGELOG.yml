@@ -1,0 +1,15 @@
+- commits:
+    - subject: Create proof of concept
+      hash: 3b5e9e697de477726a49b140bd7509f19e4afd5c
+      body: |
+        This creates the first version of the block with the minimal
+        functionality for it to operate. The block by default listens for
+        `openvpn` and `kernel` logs and collects any logs that have priority
+        error or above.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+  version: 0.0.2
+  title: ""
+  date: 2022-12-07T20:42:44.224Z
