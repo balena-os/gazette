@@ -1,0 +1,32 @@
+name: gazette
+type: sw.block
+description: >-
+  A simple log collection agent that follows the logs for user defined services and agregates them 
+  in a single stream. This allows the supervisor to collect and send the logs to the API and provides
+  users and support agents with an extra source of data to diagnose potential device issues. By default only 
+  log entries with priority error or higher are collected.
+
+assets:
+  repository:
+  type: blob.asset
+  data:
+    url: 'https://github.com/balena-os/gazette'
+data:
+  defaultDeviceType: genericx86-64-ext
+  supportedDeviceTypes:
+    - fincm3
+    - generic
+    - generic-amd64
+    - generic-aarch64
+    - genericx86-64-ext
+    - intel-nuc
+    - odyssey-x86
+    - qemux86-64
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi4-64
+    - surface-go
+    - surface-pro-6
+    - up-board
+version: 0.1.0

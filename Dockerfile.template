@@ -1,0 +1,19 @@
+# FROM debian doesn't work with `balena push <addr>` on the Pi Zero
+# because the engine does not know to pull the compatible `armv5` images.
+# This file is for local testing only
+FROM balenalib/%%BALENA_ARCH%%-debian:bullseye-run as binaries
+
+RUN apt-get update && apt-get install -y --no-install-recommends systemd
+
+COPY create-sysroot.sh /
+RUN /create-sysroot.sh /bin/journalctl
+    
+FROM alpine
+
+RUN apk --update add --no-cache jq
+
+# Copy journalctl and dependenciest to the local image
+COPY --from=binaries /sysroot /
+COPY start.sh format.jq /
+
+CMD ["/start.sh"]
