@@ -1,7 +1,7 @@
 # FROM debian doesn't work with `balena push <addr>` on the Pi Zero
 # because the engine does not know to pull the compatible `armv5` images.
 # This file is for local testing only
-FROM balenalib/%%BALENA_ARCH%%-debian:bullseye-run as binaries
+FROM balenalib/%%BALENA_ARCH%%-debian as binaries
 
 RUN apt-get update && apt-get install -y --no-install-recommends systemd
 
