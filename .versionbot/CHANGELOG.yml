@@ -1,4 +1,15 @@
 - commits:
+    - subject: Refactor the formatting script
+      hash: 866c6a7797ec04a0b2162b49b30abe948f7a398f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+  version: 0.1.2
+  title: ""
+  date: 2022-12-07T23:24:44.595Z
+- commits:
     - subject: "Update: add renovate.json"
       hash: 5a2b403d53f33c43847f8633002ec16fe61c64d0
       body: ""
