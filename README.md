@@ -28,13 +28,13 @@ services:
     labels:
       # Necessary to give the container access to the journal directories
       io.balena.features.journal-logs: '1'
-    restart: unless_stopped
+    restart: on-failure
 ```
 
 ## Environment variables
 
-| Name             | Description                                                                                                                 | Default Value |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| JOURNAL_UNITS    | Space separated list of [systemd services](https://wiki.archlinux.org/title/systemd#Using_units) from where to collect logs | openvpn       |
-| JOURNAL_IDS      | Space separated list of syslog identifiers from where to collect logs                                                       | kernel        |
-| JOURNAL_LOGLEVEL | Minimal priority of log entries to make them elegible for collection. One of `debug`, `info`, `warn`, `error`               | error         |
+| Name             | Description                                                                                                                                                                                | Default Value |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| JOURNAL_UNITS    | Space separated list of [systemd services](https://wiki.archlinux.org/title/systemd#Using_units) from where to collect logs                                                                | `openvpn`     |
+| JOURNAL_IDS      | Space separated list of syslog identifiers from where to collect logs                                                                                                                      | `kernel`      |
+| JOURNAL_PRIORITY | Minimal priority of log entries to make them elegible for collection. One of `debug`, `info`, `warn`, `error`, `none`. If `none` is used, then the service will shutdown to save resources | error         |

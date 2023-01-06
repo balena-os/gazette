@@ -5,4 +5,4 @@ services:
     build: ./
     labels:
       io.balena.features.journal-logs: '1'
-    restart: unless_stopped
+    restart: on-failure
