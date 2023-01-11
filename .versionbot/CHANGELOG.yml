@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add log priority 'none' to disable service
+      hash: a0f799b38651dbda8142d08981f4434fa3028d3a
+      body: |
+        This renames the configuration `JOURNAL_LOGLEVEL` to `JOURNAL_PRIORITY`
+        (`JOURNAL_LOGLEVEL` is still available but deprecated). It also adds a
+        new option for priority: `none`, indicating the service to ignore any
+        log events of any type. If this option is given, the service will shut
+        down to save resources.
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+  version: 0.2.0
+  title: ""
+  date: 2023-01-11T23:25:38.943Z
+- commits:
     - subject: Refactor the formatting script
       hash: 866c6a7797ec04a0b2162b49b30abe948f7a398f
       body: ""
