@@ -12,8 +12,11 @@ JOURNAL_UNITS=${JOURNAL_UNITS:-"openvpn"}
 # Set this to add units by identifier, e.g. "kernel"
 JOURNAL_IDS=${JOURNAL_IDS:="kernel"}
 
-# Send only errors or more critical messages
+# @deprecated remove in next major bump
 JOURNAL_LOGLEVEL=${JOURNAL_LOGLEVEL:-"error"}
+
+# Send only errors or more critical messages
+JOURNAL_PRIORITY=${JOURNAL_PRIORITY:-$JOURNAL_LOGLEVEL}
 
 # Add identifiers arguments
 if [ -n "${JOURNAL_IDS}" ]; then
@@ -29,6 +32,7 @@ if [ -n "${JOURNAL_UNITS}" ]; then
 	done
 fi
 
+# Journalctl command uses `+` to indicate OR
 filters=$(echo "$@" | sed 's/ / + /g')
 
 # Use $@ to manage journalctl arguments
@@ -38,8 +42,8 @@ set -- -f --lines=1000 -q -a -o json
 
 # Set priority (error by default)
 priority=3
-if [ -n "${JOURNAL_LOGLEVEL}" ]; then
-	case "${JOURNAL_LOGLEVEL}" in
+if [ -n "${JOURNAL_PRIORITY}" ]; then
+	case "${JOURNAL_PRIORITY}" in
 	debug | DEBUG)
 		priority=7
 		;;
@@ -51,6 +55,10 @@ if [ -n "${JOURNAL_LOGLEVEL}" ]; then
 		;;
 	error | ERROR)
 		priority=3
+		;;
+	none | NONE)
+		echo "Priority set to 'none', terminating process to save resources. " >&2
+		exit 0
 		;;
 	esac
 fi
@@ -66,6 +74,7 @@ else
 	set -- "$@" --boot
 fi
 
+echo "Listening for events of priority '${JOURNAL_PRIORITY}' or above." >&2
 # we want globbing of the filters variable so disable shellcheck warnings here
 # shellcheck disable=SC2086
 journalctl "$@" $filters | jq -r -f ./format.jq &
@@ -73,7 +82,7 @@ journal=$!
 
 # Trap exit signals in order to save the log report
 cleanup() {
-	echo "Termination signal received"
+	echo "Termination signal received" >&2
 
 	# /tmp/balena files will persist until reboot, we
 	# write the exit time there so we can read the logs
