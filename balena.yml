@@ -1,10 +1,11 @@
 name: gazette
 type: sw.block
 description: >-
-  A simple log collection agent that follows the logs for user defined services and agregates them 
-  in a single stream. This allows the supervisor to collect and send the logs to the API and provides
-  users and support agents with an extra source of data to diagnose potential device issues. By default only 
-  log entries with priority error or higher are collected.
+  A simple log collection agent that follows the logs for user defined services
+  and agregates them  in a single stream. This allows the supervisor to collect
+  and send the logs to the API and provides users and support agents with an
+  extra source of data to diagnose potential device issues. By default only  log
+  entries with priority error or higher are collected.
 
 assets:
   repository:
@@ -29,4 +30,4 @@ data:
     - surface-go
     - surface-pro-6
     - up-board
-version: 0.1.0
+version: 0.3.0

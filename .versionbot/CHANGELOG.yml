@@ -1,4 +1,27 @@
 - commits:
+    - subject: Add repo.yml to enable versionbot
+      hash: 7e081741b6c3fe3a7d3b79800c2a30770765fb87
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+    - subject: Add support for byte arrrays
+      hash: a19270c88aab38cc4876e34824afa8f49ed51f9d
+      body: |
+        A log entry containing a byte encoded message would cause jq to return
+        an error `cannot add <string> to array`. This converts the message into
+        a string before adding it to the log stream.
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+      nested: []
+  version: 0.3.0
+  title: ""
+  date: 2023-09-20T21:44:02.203Z
+- commits:
     - subject: Add log priority 'none' to disable service
       hash: a0f799b38651dbda8142d08981f4434fa3028d3a
       body: |
