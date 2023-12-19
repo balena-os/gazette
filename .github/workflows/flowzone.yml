@@ -1,5 +1,4 @@
 name: Flowzone
-
 on:
   pull_request:
     types: [opened, synchronize, closed]
@@ -8,7 +7,6 @@ on:
   pull_request_target:
     types: [opened, synchronize, closed]
     branches: [main, master]
-
 jobs:
   flowzone:
     name: Flowzone
@@ -21,6 +19,5 @@ jobs:
     secrets: inherit
     with:
       protect_branch: true
-      repo_config: true
       docker_images: |
         ghcr.io/balena-os/gazette
