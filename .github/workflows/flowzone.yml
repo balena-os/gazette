@@ -18,6 +18,5 @@ jobs:
       (github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'pull_request_target')
     secrets: inherit
     with:
-      protect_branch: true
       docker_images: |
         ghcr.io/balena-os/gazette
