@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove deprecated Flowzone setting
+      hash: 6fa0e186722f946dae82b3a147b691407593a917
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+      nested: []
+  version: 0.3.2
+  title: ""
+  date: 2024-01-22T17:54:10.383Z
+- commits:
     - subject: Remove repo config from flowzone.yml
       hash: e81dadf52ad1cffef5b1273353e0c96f4c3791c7
       body: |
